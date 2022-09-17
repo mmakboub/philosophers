@@ -6,7 +6,7 @@
 /*   By: mmakboub <mmakboub@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 18:21:55 by mmakboub          #+#    #+#             */
-/*   Updated: 2022/09/17 18:52:41 by mmakboub         ###   ########.fr       */
+/*   Updated: 2022/09/17 22:46:33 by mmakboub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,4 +23,11 @@ typedef struct s_compstargs{
     int nbr_philo;
     int nb_time_philo_musteat;
 	
-}t_compstjargs
+}t_compstargs;
+void    check_argument( char **argv, int ac);
+void    check_digit(char **argument);
+void    initialiaze_argv(t_compstargs   *argphilo, char **av, int ac);
+int	    errorinargument();
+int     ft_atoi(char *str);
+int	    ft_isdigit(int x);
+#endif
