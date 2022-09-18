@@ -6,12 +6,12 @@
 /*   By: mmakboub <mmakboub@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 19:13:29 by mmakboub          #+#    #+#             */
-/*   Updated: 2022/09/17 23:17:50 by mmakboub         ###   ########.fr       */
+/*   Updated: 2022/09/18 22:33:11 by mmakboub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"philosophers.h"
-void     check_digit(char **argument)
+int     check_digit(char **argument)
 {
     int i;
     int j;
@@ -28,6 +28,7 @@ void     check_digit(char **argument)
         }
         i++;
     }
+    return(1);
 }
 void    initialiaze_argv(t_compstargs   *argphilo, char **av, int ac)
 {

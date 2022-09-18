@@ -6,7 +6,7 @@
 /*   By: mmakboub <mmakboub@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 19:12:04 by mmakboub          #+#    #+#             */
-/*   Updated: 2022/09/17 22:51:34 by mmakboub         ###   ########.fr       */
+/*   Updated: 2022/09/18 22:32:52 by mmakboub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,5 @@
 int	errorinargument()
 {
 	write(1, "invalide argument", 17);
-	return (1);
+	return (0);
 }
