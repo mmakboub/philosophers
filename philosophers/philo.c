@@ -6,7 +6,7 @@
 /*   By: mmakboub <mmakboub@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 16:27:57 by mmakboub          #+#    #+#             */
-/*   Updated: 2022/10/02 01:48:13 by mmakboub         ###   ########.fr       */
+/*   Updated: 2022/10/03 00:31:54 by mmakboub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int init_next_fork(t_philo_info *philo)
 {
     t_compstargs *argphilo;
     int i = 0;
-    while(i < argphilo->nbr_philo)
+    while(i < info->args->nbr_philo)
     {
         philo[i].init_next_fork = (pthread_mutex_t *)malloc(sizeof(pthread_mutex_t));
         if(!philo[i].init_next_fork)
@@ -66,9 +66,8 @@ int init_next_fork(t_philo_info *philo)
 }
 int init_fork(t_philo_info *philo)
 {
-    t_compstargs *argphilo;
     int i = 0;
-    while(i < argphilo->nbr_philo)
+    while(i < info->args->nbr_philo)
     {
         philo[i].fork = (pthread_mutex_t *)malloc(sizeof(pthread_mutex_t));
         if(!philo[i].fork)
@@ -78,33 +77,23 @@ int init_fork(t_philo_info *philo)
     }
     return(1);
 }
-int intiatialize_all(t_philo_info *info)
-{
-    t_compstargs    *argphilo;
-    int i;
-    i = 0;
-    while(i < argphilo->nbr_philo)
-    {
-        philo->index = i + 1;
-        
-        
-    }
-}
+
 int main(int ac, char **av)
 {
     t_compstargs    *argphilo;
+    t_philo_info    *philo;
 
     if (ac == 5 || ac == 6)
     { 
-        //printf("%d\n", ac);
         if(!check_digit(av))
             errorinargument();
         argphilo = (t_compstargs *)malloc(sizeof(t_compstargs));
-        initialiaze_argv(argphilo, av, ac);
-        argphilo->philo = (pthread_t *)malloc(sizeof(pthread_t) * argphilo->nbr_philo); 
+        if(!initialiaze_all(argphilo, philo, av, ac) || !init_fork(philo), !init_next_fork(philo))
+            return(0);
+        creatmutex
         creatthreads(argphilo);
-        //while(1);
     }
     else
         errorinargument();
+    return(1);
 }

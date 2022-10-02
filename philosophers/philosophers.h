@@ -6,7 +6,7 @@
 /*   By: mmakboub <mmakboub@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 18:21:55 by mmakboub          #+#    #+#             */
-/*   Updated: 2022/10/02 01:00:33 by mmakboub         ###   ########.fr       */
+/*   Updated: 2022/10/03 00:47:31 by mmakboub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,15 @@
 #include<stdlib.h>
 #include<pthread.h>
 #include<stdio.h>
+#include <sys/time.h>
 
 typedef struct s_compstargs{
     int die;
     int eat;
     int sleep;
     int nbr_philo;
-    int nb_time_philo_musteat;
+    int x_time_musteat;
+    int start;
 	
 }t_compstargs;
 
@@ -31,9 +33,10 @@ typedef struct s_philo_info{
     pthread_t   *philo;
     pthread_mutex_t *fork;
     pthread_mutex_t *next_fork;
+    t_compstargs	*args;
     int index;
-    int time_of_d;
-	
+    bool status;
+    int get_time;
 }t_philo_info;
 
 
