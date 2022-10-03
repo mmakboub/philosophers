@@ -6,7 +6,7 @@
 /*   By: mmakboub <mmakboub@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 18:21:55 by mmakboub          #+#    #+#             */
-/*   Updated: 2022/10/03 00:47:31 by mmakboub         ###   ########.fr       */
+/*   Updated: 2022/10/03 19:40:39 by mmakboub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 #include<pthread.h>
 #include<stdio.h>
 #include <sys/time.h>
+#include <stdbool.h>
 
 typedef struct s_compstargs{
     int die;
@@ -40,10 +41,15 @@ typedef struct s_philo_info{
 }t_philo_info;
 
 
-void    check_argument( char **argv, int ac);
 int     check_digit(char **argument);
-void    initialiaze_argv(t_compstargs   *argphilo, char **av, int ac);
+int     initialiaze_all(t_compstargs   *argphilo, t_philo_info    *philo, char **av, int ac);
 int	    errorinargument();
 int     ft_atoi(const char *str);
 int	    ft_isdigit(int x);
+long    get_time(void);
+void    *routine(void *argv);
+int     creatthreads(t_compstargs   *argphilo, t_philo_info    *philos);
+int     init_next_fork(t_philo_info *philo);
+int     init_fork(t_philo_info *philo);
+
 #endif
