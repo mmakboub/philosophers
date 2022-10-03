@@ -6,7 +6,7 @@
 /*   By: mmakboub <mmakboub@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 19:13:29 by mmakboub          #+#    #+#             */
-/*   Updated: 2022/10/03 18:56:42 by mmakboub         ###   ########.fr       */
+/*   Updated: 2022/10/04 00:18:01 by mmakboub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ int     check_digit(char **argument)
 int    initialiaze_all(t_compstargs   *argphilo, t_philo_info    *philo, char **av, int ac)
 {
     int i;
-    
     i = 0;
     argphilo->nbr_philo = ft_atoi(av[1]);
     argphilo->die = ft_atoi(av[2]);
@@ -54,8 +53,9 @@ int    initialiaze_all(t_compstargs   *argphilo, t_philo_info    *philo, char **
     while(i < argphilo->nbr_philo)
     {
         philo[i].index = i + 1;
-        philo[i].status = 1;//in order to check the status of philosophers
+        philo[i].status = true;//in order to check the status of philosophers
         philo[i].args = argphilo;
+        i++;
     }
     return(1);
 }
