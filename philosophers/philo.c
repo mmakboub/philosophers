@@ -6,27 +6,22 @@
 /*   By: mmakboub <mmakboub@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 16:27:57 by mmakboub          #+#    #+#             */
-/*   Updated: 2022/10/05 14:50:29 by mmakboub         ###   ########.fr       */
+/*   Updated: 2022/10/06 00:42:41 by mmakboub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"philosophers.h"
 void    *routine(void *argv)
 {
-    long time;
-    time = get_time();
-    if((*(int *)argv + 1) % 2 == 0)
-        usleep(10000);
+    t_philo_info    *philo;
+    philo = (t_philo_info *)argv;
+    if(philo->index % 2 == 0)
+        get_break(philo->args->eat); 
     while(1)
     {
-        
-        printf("time !!ms philo %d has taking a fork\n", *(int *)argv + 1);
-        printf("time !!ms philo %d has takin a fork\n", *(int *)argv + 1);
-        printf("time !!ms philo %d is eating\n", *(int *)argv + 1);
-        sleep(2);
-        printf("time !!ms philo %d is sleeping\n", *(int *)argv + 1);
-        sleep(2);
-        printf("time !!ms philo %d is thinking\n", *(int *)argv + 1);
+        if()
+       is_eating(philo);
+       is_sleeping(philo);
     }
     return NULL;
 }
@@ -35,9 +30,9 @@ int   creatthreads(t_compstargs   *argphilo, t_philo_info    *philos)
     int i;
     t_compstargs *philoinfo;
     i = 0;
+    philos[i].start = getting_time();
     while(i < argphilo->nbr_philo)
     {
-        philos[i].start = getting_time();
         //to do : initialize last_meal in the least of is_eating function
         int *a = malloc(sizeof(int));
         *a = i;
@@ -66,7 +61,7 @@ int init_mutex(t_philo_info *philo)
         pthread_mutex_init(philo[i].for_writing, NULL);
         i++;
     }
-    /*int i = 0; // this party will be done when one of philosophers die
+    /*int i = 0;  this party will be done when one of philosophers die
     while(i < philo->args->nbr_philo)
     {
         philo[i].death_of_philo = (pthread_mutex_t *)malloc(sizeof(pthread_mutex_t));
@@ -85,7 +80,6 @@ int init_next_fork(t_philo_info *philo)
     {
         //pthread_mutex_init(philo[i].fork, NULL);
         philo[i].next_fork = philo[(i + 1) % philo->args->nbr_philo].fork;
-        printf("mariam %p\n", philo[i].next_fork);
         i++;
     }
     return(1);

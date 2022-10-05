@@ -6,7 +6,7 @@
 /*   By: mmakboub <mmakboub@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 19:13:29 by mmakboub          #+#    #+#             */
-/*   Updated: 2022/10/05 14:52:06 by mmakboub         ###   ########.fr       */
+/*   Updated: 2022/10/05 23:53:04 by mmakboub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ int    initialiaze_all(t_compstargs   *argphilo, t_philo_info    *philo, char **
         philo[i].status = true;//in order to check the status of philosophers
         philo[i].args = argphilo;
         philo[i].last_meal = 0;
+        pthread_mutex_init((philo[i].for_writing), NULL)
         i++;
     }
     return(1);
