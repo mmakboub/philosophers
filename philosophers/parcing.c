@@ -6,17 +6,18 @@
 /*   By: mmakboub <mmakboub@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 19:13:29 by mmakboub          #+#    #+#             */
-/*   Updated: 2022/10/04 00:18:01 by mmakboub         ###   ########.fr       */
+/*   Updated: 2022/10/05 14:52:06 by mmakboub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"philosophers.h"
-long    get_time(void)
+long    getting_time(void)
 {
     struct timeval timing;
     gettimeofday(&timing, NULL);
     return((timing.tv_sec * 1000) + (timing.tv_usec / 1000));
 }
+
 int     check_digit(char **argument)
 {
     int i;
@@ -55,6 +56,7 @@ int    initialiaze_all(t_compstargs   *argphilo, t_philo_info    *philo, char **
         philo[i].index = i + 1;
         philo[i].status = true;//in order to check the status of philosophers
         philo[i].args = argphilo;
+        philo[i].last_meal = 0;
         i++;
     }
     return(1);

@@ -6,7 +6,7 @@
 /*   By: mmakboub <mmakboub@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 16:27:57 by mmakboub          #+#    #+#             */
-/*   Updated: 2022/10/04 00:22:54 by mmakboub         ###   ########.fr       */
+/*   Updated: 2022/10/05 14:50:29 by mmakboub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,10 @@ int   creatthreads(t_compstargs   *argphilo, t_philo_info    *philos)
     i = 0;
     while(i < argphilo->nbr_philo)
     {
+        philos[i].start = getting_time();
+        //to do : initialize last_meal in the least of is_eating function
         int *a = malloc(sizeof(int));
         *a = i;
-        //printf("hi\n");
         if(pthread_create(&(philos->philo[i]), NULL,  &routine, a) < 0)
             return(printf("the tread wasn't created \n"), 0);
         i++;
@@ -53,12 +54,36 @@ int   creatthreads(t_compstargs   *argphilo, t_philo_info    *philos)
     }
     return (1);
 }
+
+int init_mutex(t_philo_info *philo)
+{
+    int i = 0;
+    while(i < philo->args->nbr_philo)
+    {
+        philo[i].for_writing = (pthread_mutex_t *)malloc(sizeof(pthread_mutex_t));
+        if(!philo[i].for_writing)
+            return(0);
+        pthread_mutex_init(philo[i].for_writing, NULL);
+        i++;
+    }
+    /*int i = 0; // this party will be done when one of philosophers die
+    while(i < philo->args->nbr_philo)
+    {
+        philo[i].death_of_philo = (pthread_mutex_t *)malloc(sizeof(pthread_mutex_t));
+        if(!philo[i].death_of_philo)
+            return(0);
+        pthread_mutex_init(philo[i].death_of_philo, NULL);
+        i++;
+    }
+    return(1);*/
+}
+
 int init_next_fork(t_philo_info *philo)
 {
     int i = 0;
     while(i < philo->args->nbr_philo)
     {
-        // pthread_mutex_init(philo[i].fork, NULL);
+        //pthread_mutex_init(philo[i].fork, NULL);
         philo[i].next_fork = philo[(i + 1) % philo->args->nbr_philo].fork;
         printf("mariam %p\n", philo[i].next_fork);
         i++;
@@ -78,7 +103,7 @@ int init_fork(t_philo_info *philo)
     }
     return(1);
 }
-
+int init_mutex()
 int main(int ac, char **av)
 {
     t_compstargs    *argphilo;
@@ -92,7 +117,7 @@ int main(int ac, char **av)
         philo = (t_philo_info *)malloc(sizeof(t_philo_info));
         if(!(initialiaze_all(argphilo, philo, av, ac)) || !(init_fork(philo)) || !(init_next_fork(philo)))
             return(0);
-        printf("%d\n", ac);
+        //printf("%d\n", ac);
         creatthreads(argphilo, philo);
     }
     else

@@ -6,7 +6,7 @@
 /*   By: mmakboub <mmakboub@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 18:21:55 by mmakboub          #+#    #+#             */
-/*   Updated: 2022/10/03 19:40:39 by mmakboub         ###   ########.fr       */
+/*   Updated: 2022/10/05 14:39:03 by mmakboub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ typedef struct s_compstargs{
     int eat;
     int sleep;
     int nbr_philo;
-    int x_time_musteat;
-    int start;
+    int x_time_musteat; 
+    
 	
 }t_compstargs;
 
@@ -34,10 +34,14 @@ typedef struct s_philo_info{
     pthread_t   *philo;
     pthread_mutex_t *fork;
     pthread_mutex_t *next_fork;
+    pthread_mutex_t *for_writing;
+    pthread_mutex_t *death_of_philo;
     t_compstargs	*args;
     int index;
     bool status;
     int get_time;
+    long start;
+    long last_meal;
 }t_philo_info;
 
 
