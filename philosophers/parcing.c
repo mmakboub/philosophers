@@ -6,7 +6,7 @@
 /*   By: mmakboub <mmakboub@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 19:13:29 by mmakboub          #+#    #+#             */
-/*   Updated: 2022/10/06 13:25:49 by mmakboub         ###   ########.fr       */
+/*   Updated: 2022/10/06 17:28:33 by mmakboub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ int    initialiaze_all(t_compstargs   *argphilo, t_philo_info    *philo, char **
         philo[i].args = argphilo;
         philo[i].last_meal = 0;
         argphilo->nbrofeats = 0;
-        pthread_mutex_init((philo[i].for_writing), NULL)
+        pthread_mutex_init((argphilo->for_writing), NULL);
         i++;
     }
     return(1);
