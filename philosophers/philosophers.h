@@ -6,7 +6,7 @@
 /*   By: mmakboub <mmakboub@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 18:21:55 by mmakboub          #+#    #+#             */
-/*   Updated: 2022/10/05 23:16:26 by mmakboub         ###   ########.fr       */
+/*   Updated: 2022/10/06 13:25:19 by mmakboub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ typedef struct s_compstargs{
     int eat;
     int sleep;
     int nbr_philo;
-    int x_time_musteat; 
-    
-	
+    int x_time_musteat;
+    pthread_mutex_t *for_writing;
+    int nbrofeats;
 }t_compstargs;
 
 typedef struct s_philo_info{
@@ -34,7 +34,6 @@ typedef struct s_philo_info{
     pthread_t   *philo;
     pthread_mutex_t *fork;
     pthread_mutex_t *next_fork;
-    pthread_mutex_t *for_writing;
     pthread_mutex_t *death_of_philo;
     t_compstargs	*args;
     int index;

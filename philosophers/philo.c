@@ -6,7 +6,7 @@
 /*   By: mmakboub <mmakboub@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 16:27:57 by mmakboub          #+#    #+#             */
-/*   Updated: 2022/10/06 00:42:41 by mmakboub         ###   ########.fr       */
+/*   Updated: 2022/10/06 13:01:20 by mmakboub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,10 @@ void    *routine(void *argv)
         get_break(philo->args->eat); 
     while(1)
     {
-        if()
        is_eating(philo);
        is_sleeping(philo);
+       is_thinking(philo);
     }
-    return NULL;
 }
 int   creatthreads(t_compstargs   *argphilo, t_philo_info    *philos)
 {
