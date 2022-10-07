@@ -6,17 +6,22 @@
 #    By: mmakboub <mmakboub@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/17 16:32:39 by mmakboub          #+#    #+#              #
-#    Updated: 2022/09/17 16:35:23 by mmakboub         ###   ########.fr        #
+#    Updated: 2022/10/06 22:33:18 by mmakboub         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = philosophers
 FONCTIONS = ./MANDATORY/philo.c\
-			./MANDATORY/parcing.c
-
-			
+			./MANDATORY/parcing.c\
+			./MANDATORY/error_free.c\
+			./MANDATORY/helpfullfonctions.c\
+			./MANDATORY/initialisation.c\
+			./MANDATORY/routine_fonctions.c\
+			./MANDATORY/routine.c\
+			./MANDATORY/timing.c
+	
 CC = cc
-CFLAGS = -Wall -Werror -Wextra -g -
+CFLAGS = -Wall -Werror -Wextra
 RM = rm -f
 INCLUDE = ./MANDATORY/philosophers.h
 

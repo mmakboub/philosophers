@@ -6,7 +6,7 @@
 /*   By: mmakboub <mmakboub@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 18:21:55 by mmakboub          #+#    #+#             */
-/*   Updated: 2022/10/06 13:25:19 by mmakboub         ###   ########.fr       */
+/*   Updated: 2022/10/07 14:55:33 by mmakboub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ typedef struct s_compstargs{
 
 typedef struct s_philo_info{
     
-    pthread_t   *philo;
+    pthread_t   philo;
     pthread_mutex_t *fork;
     pthread_mutex_t *next_fork;
     pthread_mutex_t *death_of_philo;
@@ -45,7 +45,7 @@ typedef struct s_philo_info{
 
 
 int     check_digit(char **argument);
-int     initialiaze_all(t_compstargs   *argphilo, t_philo_info    *philo, char **av, int ac);
+int     initialiaze_all(t_compstargs   *argphilo, t_philo_info    *philo, char **av);
 int	    errorinargument();
 int     ft_atoi(const char *str);
 int	    ft_isdigit(int x);
@@ -54,5 +54,13 @@ void    *routine(void *argv);
 int     creatthreads(t_compstargs   *argphilo, t_philo_info    *philos);
 int     init_next_fork(t_philo_info *philo);
 int     init_fork(t_philo_info *philo);
-
+int     init_mutex(t_philo_info *philo);
+void    is_sleeping(t_philo_info *philo);
+void    is_thinking(t_philo_info *philo);
+void    taking_fork(t_philo_info *philo);
+void    taking_next_fork(t_philo_info *philo);
+int     x_time_musteat(t_philo_info *philo);
+int     is_eating(t_philo_info *philo);
+void    get_break(long sleep_time);
+long    getting_time(void);
 #endif
