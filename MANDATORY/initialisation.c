@@ -6,7 +6,7 @@
 /*   By: mmakboub <mmakboub@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 18:36:32 by mmakboub          #+#    #+#             */
-/*   Updated: 2022/10/07 15:24:39 by mmakboub         ###   ########.fr       */
+/*   Updated: 2022/10/07 15:59:35 by mmakboub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ int init_mutex(t_philo_info *philo)
     pthread_mutex_init(philo->args->for_writing, NULL);
     while(i < philo->args->nbr_philo)
     {
-    //  printf("hi\n");
        philo[i].args->for_writing =  philo[0].args->for_writing;
         i++;
     }
@@ -46,9 +45,6 @@ int    initialiaze_all(t_compstargs   *argphilo, t_philo_info    *philo, char **
     argphilo->x_time_musteat = 0;
     if(av[5])
             argphilo->x_time_musteat = ft_atoi(av[5]);
-    // philo->philo = (pthread_t *)malloc(sizeof(pthread_t) * argphilo->nbr_philo);
-    // if(!philo->philo)
-    //     return(0);
     while(i < argphilo->nbr_philo)
     {
         philo[i].index = i + 1;
@@ -56,7 +52,6 @@ int    initialiaze_all(t_compstargs   *argphilo, t_philo_info    *philo, char **
         philo[i].args = argphilo;
         philo[i].last_meal = 0;
         argphilo->nbrofeats = 0;
-        // printf("HI\n");
         i++;
     }
     init_mutex(philo);

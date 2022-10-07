@@ -6,7 +6,7 @@
 /*   By: mmakboub <mmakboub@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 18:39:20 by mmakboub          #+#    #+#             */
-/*   Updated: 2022/10/07 15:15:52 by mmakboub         ###   ########.fr       */
+/*   Updated: 2022/10/07 17:28:36 by mmakboub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,11 @@ void    *routine(void *argv)
         get_break(philo->args->eat); 
     while(1)
     {
-       if(!is_eating(philo))
+        //checking_death(philo);
+        if(!is_eating(philo))
             break;
-       is_sleeping(philo);
-       is_thinking(philo);
+        is_sleeping(philo);
+        is_thinking(philo);
     }
     return (NULL);
 }
@@ -34,10 +35,10 @@ int   creatthreads(t_compstargs   *argphilo, t_philo_info    *philos)
 {
     int i;
     i = 0;
-    printf("HI\n");
     while(i < argphilo->nbr_philo)
     {
         philos[i].start = getting_time();
+        philos[i].last_meal = philos[i].start;
         if(pthread_create(&philos[i].philo, NULL,  &routine, &philos[i]) < 0)
             return(printf("the tread wasn't created \n"), 0);
         i++;
