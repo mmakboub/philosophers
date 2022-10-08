@@ -6,7 +6,7 @@
 #    By: mmakboub <mmakboub@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/17 16:32:39 by mmakboub          #+#    #+#              #
-#    Updated: 2022/10/06 22:33:18 by mmakboub         ###   ########.fr        #
+#    Updated: 2022/10/07 19:05:05 by mmakboub         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,8 @@ FONCTIONS = ./MANDATORY/philo.c\
 			./MANDATORY/initialisation.c\
 			./MANDATORY/routine_fonctions.c\
 			./MANDATORY/routine.c\
-			./MANDATORY/timing.c
+			./MANDATORY/timing.c\
+			./MANDATORY/checking.c
 	
 CC = cc
 CFLAGS = -Wall -Werror -Wextra

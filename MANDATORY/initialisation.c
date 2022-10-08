@@ -6,7 +6,7 @@
 /*   By: mmakboub <mmakboub@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 18:36:32 by mmakboub          #+#    #+#             */
-/*   Updated: 2022/10/07 15:59:35 by mmakboub         ###   ########.fr       */
+/*   Updated: 2022/10/08 16:25:34 by mmakboub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,12 +43,14 @@ int    initialiaze_all(t_compstargs   *argphilo, t_philo_info    *philo, char **
     argphilo->eat = ft_atoi(av[3]);
     argphilo->sleep = ft_atoi(av[4]);
     argphilo->x_time_musteat = 0;
+    argphilo->timehascome = 1;
+    
     if(av[5])
             argphilo->x_time_musteat = ft_atoi(av[5]);
     while(i < argphilo->nbr_philo)
     {
         philo[i].index = i + 1;
-        philo[i].status = true;//in order to check the status of philosophers
+        //philo[i].status = true;//in order to check the status of philosophers
         philo[i].args = argphilo;
         philo[i].last_meal = 0;
         argphilo->nbrofeats = 0;

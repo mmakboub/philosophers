@@ -6,7 +6,7 @@
 /*   By: mmakboub <mmakboub@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 22:57:40 by mmakboub          #+#    #+#             */
-/*   Updated: 2022/10/07 17:27:35 by mmakboub         ###   ########.fr       */
+/*   Updated: 2022/10/08 16:20:11 by mmakboub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 void is_sleeping(t_philo_info *philo)
 {
     pthread_mutex_lock(philo->args->for_writing);
-    printf("%ld philosophe %d is sleeping\n", (getting_time() - philo->start) , philo->index);
+    printf("%ld ms philosophe %d is sleeping\n", execution_time(philo) , philo->index);
     pthread_mutex_unlock(philo->args->for_writing);
     get_break(philo->args->sleep);
 }
@@ -25,7 +25,7 @@ void is_sleeping(t_philo_info *philo)
 void is_thinking(t_philo_info *philo)
 {
     pthread_mutex_lock(philo->args->for_writing);
-    printf("%ld philosophe %d is thinking\n", (getting_time() - philo->start) , philo->index);
+    printf("%ld ms philosophe %d is thinking\n", execution_time(philo) , philo->index);
     pthread_mutex_unlock(philo->args->for_writing);
 }
 
@@ -33,7 +33,7 @@ void taking_fork(t_philo_info *philo)
 {
     pthread_mutex_lock(philo->fork);
     pthread_mutex_lock(philo->args->for_writing);
-    printf("%ld philosophe %d has taken a fork\n", (getting_time() - philo->start) , philo->index);
+    printf("%ld ms philosophe %d has taken a fork\n", execution_time(philo) , philo->index);
     pthread_mutex_unlock(philo->args->for_writing);
 }
 
@@ -41,7 +41,7 @@ void taking_next_fork(t_philo_info *philo)
 {
     pthread_mutex_lock(philo->next_fork);
     pthread_mutex_lock(philo->args->for_writing);
-    printf("%ld philosophe %d has taken a fork\n", (getting_time() - philo->start) , philo->index);
+    printf("%ld ms philosophe %d has taken a fork\n", execution_time(philo) , philo->index);
     pthread_mutex_unlock(philo->args->for_writing);
 }
 
@@ -57,10 +57,11 @@ int x_time_musteat(t_philo_info *philo)
 } 
 int is_eating(t_philo_info *philo)
 {
+    philo[philo->index].last_meal = getting_time();
     taking_fork(philo);
     taking_next_fork(philo);
     pthread_mutex_lock(philo->args->for_writing);
-    printf("%ld philosophe %d is eating\n", (getting_time() - philo->start) , philo->index);
+    printf("%ld ms philosophe %d is eating\n", execution_time(philo) , philo->index);
     pthread_mutex_unlock(philo->args->for_writing);
     get_break(philo->args->eat);
     pthread_mutex_unlock(philo->fork);
@@ -69,5 +70,4 @@ int is_eating(t_philo_info *philo)
         return(0);
     return(1);
 }
-//for writing has change it's position from struct 2 to struct 1 !!!!!!!!!!!
-//musteat * n_philo should be equal to our variable nbrofeats
+
