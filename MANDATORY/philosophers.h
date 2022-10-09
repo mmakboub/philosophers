@@ -6,7 +6,7 @@
 /*   By: mmakboub <mmakboub@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 18:21:55 by mmakboub          #+#    #+#             */
-/*   Updated: 2022/10/08 16:00:57 by mmakboub         ###   ########.fr       */
+/*   Updated: 2022/10/09 18:10:03 by mmakboub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ typedef struct s_philo_info{
 int     check_digit(char **argument);
 int     initialiaze_all(t_compstargs   *argphilo, t_philo_info    *philo, char **av);
 int	    errorinargument();
-int     ft_atoi(const char *str);
+double    ft_atoi(const char *str);
 int	    ft_isdigit(int x);
 long    get_time(void);
 void    *routine(void *argv);

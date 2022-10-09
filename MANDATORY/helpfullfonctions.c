@@ -6,17 +6,17 @@
 /*   By: mmakboub <mmakboub@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 22:18:43 by mmakboub          #+#    #+#             */
-/*   Updated: 2022/09/29 23:39:47 by mmakboub         ###   ########.fr       */
+/*   Updated: 2022/10/09 18:09:47 by mmakboub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosophers.h"
-int	ft_atoi(const char *str)
+double	ft_atoi(const char *str)
 
 {
 	int	i;
-	int	result;
-	int	sign;
+	double result;
+	double sign;
 
 	sign = 1;
 	result = 0;

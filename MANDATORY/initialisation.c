@@ -6,7 +6,7 @@
 /*   By: mmakboub <mmakboub@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 18:36:32 by mmakboub          #+#    #+#             */
-/*   Updated: 2022/10/08 16:25:34 by mmakboub         ###   ########.fr       */
+/*   Updated: 2022/10/09 16:56:29 by mmakboub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,16 +22,6 @@ int init_mutex(t_philo_info *philo)
        philo[i].args->for_writing =  philo[0].args->for_writing;
         i++;
     }
-    /*int i = 0;  this party will be done when one of philosophers die
-    while(i < philo->args->nbr_philo)
-    {
-        philo[i].death_of_philo = (pthread_mutex_t *)malloc(sizeof(pthread_mutex_t));
-        if(!philo[i].death_of_philo)
-            return(0);
-        pthread_mutex_init(philo[i].death_of_philo, NULL);
-        i++;
-    }
-    return(1);*/
     return(1);
 }
 int    initialiaze_all(t_compstargs   *argphilo, t_philo_info    *philo, char **av)
@@ -44,13 +34,13 @@ int    initialiaze_all(t_compstargs   *argphilo, t_philo_info    *philo, char **
     argphilo->sleep = ft_atoi(av[4]);
     argphilo->x_time_musteat = 0;
     argphilo->timehascome = 1;
-    
+    if(argphilo->nbr_philo == 0)
+        return(write(1, "invalide argument\n", 17), 0);
     if(av[5])
             argphilo->x_time_musteat = ft_atoi(av[5]);
     while(i < argphilo->nbr_philo)
     {
         philo[i].index = i + 1;
-        //philo[i].status = true;//in order to check the status of philosophers
         philo[i].args = argphilo;
         philo[i].last_meal = 0;
         argphilo->nbrofeats = 0;
