@@ -6,17 +6,17 @@
 /*   By: mmakboub <mmakboub@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 22:18:43 by mmakboub          #+#    #+#             */
-/*   Updated: 2022/10/09 18:09:47 by mmakboub         ###   ########.fr       */
+/*   Updated: 2022/10/10 20:50:44 by mmakboub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosophers.h"
-double	ft_atoi(const char *str)
 
+double	ft_atoi(const char *str)
 {
-	int	i;
-	double result;
-	double sign;
+	int		i;
+	double	result;
+	double	sign;
 
 	sign = 1;
 	result = 0;
@@ -38,6 +38,7 @@ double	ft_atoi(const char *str)
 	}
 	return (sign * result);
 }
+
 int	ft_isdigit(int x)
 {
 	if (x >= '0' && x <= '9')
