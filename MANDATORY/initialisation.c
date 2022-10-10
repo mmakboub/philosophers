@@ -6,7 +6,7 @@
 /*   By: mmakboub <mmakboub@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 18:36:32 by mmakboub          #+#    #+#             */
-/*   Updated: 2022/10/09 16:56:29 by mmakboub         ###   ########.fr       */
+/*   Updated: 2022/10/10 14:20:14 by mmakboub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int    initialiaze_all(t_compstargs   *argphilo, t_philo_info    *philo, char **
     {
         philo[i].index = i + 1;
         philo[i].args = argphilo;
-        philo[i].last_meal = 0;
+        philo[i].last_meal = getting_time();
         argphilo->nbrofeats = 0;
         i++;
     }

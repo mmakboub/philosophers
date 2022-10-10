@@ -6,7 +6,7 @@
 /*   By: mmakboub <mmakboub@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 18:39:20 by mmakboub          #+#    #+#             */
-/*   Updated: 2022/10/09 16:24:53 by mmakboub         ###   ########.fr       */
+/*   Updated: 2022/10/10 14:16:29 by mmakboub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int   creatthreads(t_compstargs   *argphilo, t_philo_info    *philos)
             return(printf("the tread wasn't created \n"), 0);
         i++;
     }
-     i = 0;
+    i = 0;
     while(i < argphilo->nbr_philo)
     {
        pthread_detach(philos[i].philo);

@@ -6,14 +6,13 @@
 #    By: mmakboub <mmakboub@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/17 16:32:39 by mmakboub          #+#    #+#              #
-#    Updated: 2022/10/07 19:05:05 by mmakboub         ###   ########.fr        #
+#    Updated: 2022/10/10 14:06:58 by mmakboub         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = philosophers
 FONCTIONS = ./MANDATORY/philo.c\
 			./MANDATORY/parcing.c\
-			./MANDATORY/error_free.c\
 			./MANDATORY/helpfullfonctions.c\
 			./MANDATORY/initialisation.c\
 			./MANDATORY/routine_fonctions.c\
