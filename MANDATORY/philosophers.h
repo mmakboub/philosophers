@@ -6,7 +6,7 @@
 /*   By: mmakboub <mmakboub@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 18:21:55 by mmakboub          #+#    #+#             */
-/*   Updated: 2022/10/11 16:16:30 by mmakboub         ###   ########.fr       */
+/*   Updated: 2022/10/11 23:37:45 by mmakboub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,4 +62,6 @@ void	get_break(long sleep_time);
 long	getting_time(void);
 void	checking_death(t_philo_info *philo);
 long	execution_time(t_philo_info *philo);
+int		ititialiaze2(t_compstargs *argphilo, char **av);
+void	destroy_all(t_philo_info *philo, t_compstargs *arg);
 #endif

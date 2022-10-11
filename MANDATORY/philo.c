@@ -6,17 +6,11 @@
 /*   By: mmakboub <mmakboub@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 16:27:57 by mmakboub          #+#    #+#             */
-/*   Updated: 2022/10/10 21:45:05 by mmakboub         ###   ########.fr       */
+/*   Updated: 2022/10/11 23:37:00 by mmakboub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"philosophers.h"
-
-int	errorinargument(void)
-{
-	write(1, "invalide arguments\n", 17);
-	return (0);
-}
 
 int	main(int ac, char **av)
 {
@@ -35,6 +29,7 @@ int	main(int ac, char **av)
 			|| !(init_fork(philo)) || !(init_next_fork(philo)))
 			return (0);
 		creatthreads(argphilo, philo);
+		destroy_all(philo, argphilo);
 	}
 	else
 		errorinargument();
