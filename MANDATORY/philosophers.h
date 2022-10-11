@@ -6,7 +6,7 @@
 /*   By: mmakboub <mmakboub@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 18:21:55 by mmakboub          #+#    #+#             */
-/*   Updated: 2022/10/10 22:24:43 by mmakboub         ###   ########.fr       */
+/*   Updated: 2022/10/11 16:16:30 by mmakboub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ typedef struct s_compstargs{
 	pthread_mutex_t	*for_writing;
 	int				nbrofeats;
 	int				timehascome;
+	int				done;
 }t_compstargs;
 
 typedef struct s_philo_info{

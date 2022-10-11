@@ -6,7 +6,7 @@
 /*   By: mmakboub <mmakboub@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 22:57:40 by mmakboub          #+#    #+#             */
-/*   Updated: 2022/10/10 22:10:53 by mmakboub         ###   ########.fr       */
+/*   Updated: 2022/10/11 16:17:41 by mmakboub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,10 @@ int	x_time_musteat(t_philo_info *philo)
 		philo->args->nbrofeats++;
 		if (philo->args->nbr_philo * philo->args->x_time_musteat \
 			== philo->args->nbrofeats)
+		{
+			philo->args->done = 1;
 			return (0);
+		}
 	}
 	return (1);
 }
@@ -68,10 +71,10 @@ int	is_eating(t_philo_info *philo)
 	printf("%ld ms philosophe %d is eating\n", \
 	execution_time(philo), philo->index);
 	pthread_mutex_unlock(philo->args->for_writing);
+	if (!x_time_musteat(philo))
+		return (0);
 	get_break(philo->args->eat);
 	pthread_mutex_unlock(philo->fork);
 	pthread_mutex_unlock(philo->next_fork);
-	if (!x_time_musteat(philo))
-		return (0);
 	return (1);
 }

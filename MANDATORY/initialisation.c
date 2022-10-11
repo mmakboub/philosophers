@@ -6,7 +6,7 @@
 /*   By: mmakboub <mmakboub@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 18:36:32 by mmakboub          #+#    #+#             */
-/*   Updated: 2022/10/10 21:33:34 by mmakboub         ###   ########.fr       */
+/*   Updated: 2022/10/11 17:38:40 by mmakboub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,11 @@ int	initialiaze_all(t_compstargs *argphilo, t_philo_info *philo, char **av)
 	argphilo->die = ft_atoi(av[2]);
 	argphilo->eat = ft_atoi(av[3]);
 	argphilo->sleep = ft_atoi(av[4]);
+	argphilo->done = 0; 
 	argphilo->x_time_musteat = 0;
 	argphilo->timehascome = 1;
 	if (argphilo->nbr_philo == 0)
-		return (write(1, "invalide argument\n", 17), 0);
+		return (0);
 	if (av[5])
 	{
 		argphilo->x_time_musteat = ft_atoi(av[5]);
