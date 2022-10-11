@@ -6,7 +6,7 @@
 /*   By: mmakboub <mmakboub@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 17:41:14 by mmakboub          #+#    #+#             */
-/*   Updated: 2022/10/11 16:16:03 by mmakboub         ###   ########.fr       */
+/*   Updated: 2022/10/11 21:38:36 by mmakboub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	checking_death(t_philo_info *philo)
 			return ;
 		}
 		if (philo->args->done)
-			break;
+			break ;
 		i = (i + 1) % philo->args->nbr_philo;
 		usleep(100);
 	}
