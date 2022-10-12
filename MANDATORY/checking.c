@@ -6,7 +6,7 @@
 /*   By: mmakboub <mmakboub@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 17:41:14 by mmakboub          #+#    #+#             */
-/*   Updated: 2022/10/11 21:38:36 by mmakboub         ###   ########.fr       */
+/*   Updated: 2022/10/12 13:05:18 by mmakboub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	checking_death(t_philo_info *philo)
 		if (getting_time() - philo[i].last_meal >= philo->args->die)
 		{
 			pthread_mutex_lock(philo->args->for_writing);
-			printf("%ld ms philosophe %d is died\n", \
+			printf("%ld ms philosopher %d is died\n", \
 					execution_time(philo), philo[i].index);
 			philo->args->timehascome = 0;
 			return ;

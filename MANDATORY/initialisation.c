@@ -6,7 +6,7 @@
 /*   By: mmakboub <mmakboub@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 18:36:32 by mmakboub          #+#    #+#             */
-/*   Updated: 2022/10/11 22:18:40 by mmakboub         ###   ########.fr       */
+/*   Updated: 2022/10/12 13:37:42 by mmakboub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,8 @@ int	initialiaze_all(t_compstargs *argphilo, t_philo_info *philo, char **av)
 	int	i;
 
 	i = 0;
-	ititialiaze2(argphilo, av);
+	if (!ititialiaze2(argphilo, av))
+		return (0);
 	if (av[5])
 	{
 		argphilo->x_time_musteat = ft_atoi(av[5]);
@@ -84,7 +85,7 @@ int	init_fork(t_philo_info *philo)
 {
 	int	i;
 
-	i = 0;
+	i = 0 ;
 	while (i < philo->args->nbr_philo)
 	{
 		philo[i].fork = (pthread_mutex_t *)malloc(sizeof(pthread_mutex_t));

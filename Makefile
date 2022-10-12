@@ -6,7 +6,7 @@
 #    By: mmakboub <mmakboub@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/17 16:32:39 by mmakboub          #+#    #+#              #
-#    Updated: 2022/10/10 14:06:58 by mmakboub         ###   ########.fr        #
+#    Updated: 2022/10/12 13:44:38 by mmakboub         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,8 @@ FONCTIONS = ./MANDATORY/philo.c\
 			./MANDATORY/routine_fonctions.c\
 			./MANDATORY/routine.c\
 			./MANDATORY/timing.c\
-			./MANDATORY/checking.c
+			./MANDATORY/checking.c\
+			./MANDATORY/for_errorandfree.c\
 	
 CC = cc
 CFLAGS = -Wall -Werror -Wextra
@@ -30,10 +31,10 @@ OBJS = $(FONCTIONS:.c=.o)
 
 all : $(NAME)
 
-$(NAME):$(OBJS)
+$(NAME):	$(OBJS)	$(INCLUDE)
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
-%.o : %.c 
+%.o : %.c $(INCLUDE)
 	$(CC) $(CFLAGS) -c $< -o $@
 	
 clean:
